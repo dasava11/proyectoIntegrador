@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import DanielRegular from '../../fonts/DanielRegular.ttf'; 
 
+
 const RickCard = styled.div`
 display: flex;
 flex-direction:column;
