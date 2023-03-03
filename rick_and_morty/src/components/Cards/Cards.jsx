@@ -9,6 +9,7 @@ justify-content: space-around;
 /* font-family: 'Trebuchet MS'; 
 color: lawngreen; */
 `
+
 /* src: url(${DanielRegular}) format('truetype'); */
 
 export default function Cards(props) {

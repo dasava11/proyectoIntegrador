@@ -1,23 +1,35 @@
 import styled from 'styled-components';
-/* import DanielRegular from '.../fonts/DanielRegular.ttf'; */
+import DanielRegular from '../../fonts/DanielRegular.ttf'; 
 
 const RickCard = styled.div`
 display: flex;
 flex-direction:column;
 padding-top: 10px;
 align-items: center;
-font-family: 'Trebuchet MS';
+font-family: 'DanielRegular', 'Trebuchet MS';
+@font-face {
+    font-family: 'DanielRegular';
+    src: url(${DanielRegular}) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 color: lawngreen;
 border: solid 3px;
-height: 340px;
+box-shadow: 0px 0px 7px rgba(240, 248, 255, 1);
+height: 395px;
 width: 250px;
 border-radius: 25px;
 margin: 0 auto;
+margin-bottom: 25px;
+margin-top: 25px;
+cursor: pointer;
 
 &:hover{
-   transition: all 0.2s ease;
+   transition: all 0.7s ease;
+   transform: scale(1.1); 
 }
 `
+
 
 const BotonR = styled.button`
 display: flex;
@@ -61,6 +73,8 @@ margin: 5px 0px 5px 0px;
 `
 
 export default function Card({id, name, species, gender, image, onClose}) {
+
+   
    return (
       <RickCard>
          <BotonR onClick={onClose} key={id} >close</BotonR>
