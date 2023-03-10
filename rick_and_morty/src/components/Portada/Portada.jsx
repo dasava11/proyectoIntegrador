@@ -3,10 +3,10 @@ import styled from "styled-components";
 const Front = styled.img`
 display: flex;
 justify-content: flex-start;
-height: 120px;
+height: 100px;
 padding-bottom: 10px;
 position: absolute;
-top: 20px;
+top: 70px;
 left: 20px;
 z-index: auto;
 `
