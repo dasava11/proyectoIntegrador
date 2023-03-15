@@ -21,6 +21,7 @@ function App() {
           } else {
             window.alert("El personaje ya fue agregado");
           }
+          setCharacters((chars) => [...chars, data]);
         } else {
           window.alert("No hay personajes con ese ID");
         }
