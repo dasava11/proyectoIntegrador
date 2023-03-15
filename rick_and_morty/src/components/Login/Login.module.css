@@ -1,0 +1,19 @@
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top: 10rem;
+    border: 2px solid lawngreen;
+    border-radius: 2.5rem;
+}
+
+.forma {
+display: flex;
+flex-direction: column;
+margin: 8rem;
+}
+
+.imagen{
+    height: 500px;
+    border-radius: 2.3rem 0 0 2.3rem;
+}

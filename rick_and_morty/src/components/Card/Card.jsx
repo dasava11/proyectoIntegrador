@@ -5,6 +5,7 @@ import DanielRegular from '../../fonts/DanielRegular.ttf';
 const RickCard = styled.div`
 display: flex;
 flex-direction:column;
+justify-content: space-between;
 padding-top: 10px;
 align-items: center;
 font-family: 'DanielRegular', 'Trebuchet MS';
@@ -17,7 +18,7 @@ font-family: 'DanielRegular', 'Trebuchet MS';
 color: lawngreen;
 border: solid 3px;
 box-shadow: 0px 0px 7px rgba(240, 248, 255, 1);
-height: 395px;
+/* height: 395px; */
 width: 250px;
 border-radius: 25px;
 margin: 0 auto;
@@ -49,20 +50,26 @@ cursor: pointer;
    font-weight: bold;
 }
 `
+const InfoN = styled.h2`
+margin: 0px;
+height: 4px;
+`
 const InfoP = styled.h2`
 margin: 0px;
+
 `
+
 const DatosP = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-evenly;
 margin: 7px 0px 0px 0px;
 border: none;
-border-radius: 0px 0px 23px 23px;
+border-radius: 0px 0px 21px 21px;
 width: 100%;
 background-color: lawngreen;
 color: black;
-padding-bottom: 5px;
+/* padding-bottom: 5px; */
 `
 
 const ImagenP = styled.img`

@@ -52,18 +52,22 @@ cursor: pointer;
 export default function SearchBar(props) {
 const [character, setCharacter] = useState('')
 
-const handleImputChange = (event) => {
+const handleInputChange = (event) => {
     const {value} = event.target
     // console.log(value)
-    setCharacter(value)
-     
-    value = '';
+    setCharacter(value); 
+}
+
+const handleClick = ()=>{
+    props.onSearch(character)
+    setCharacter('')
 }
 
    return (
       <Busqueda>
-         <SearchP type='search' placeholder="Buscar un personaje" onChange={handleImputChange} />
-      <BotonB onClick={()=>props.onSearch(character)}>Agregar</BotonB>
+        {console.log('aqui: ', character)}
+         <SearchP type='search' placeholder="Buscar un personaje" onChange={handleInputChange} />
+      <BotonB onClick={handleClick}>Agregar</BotonB>
       </Busqueda>
    );
 }

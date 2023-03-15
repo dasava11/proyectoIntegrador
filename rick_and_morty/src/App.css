@@ -1,9 +1,7 @@
 .App {
    text-align: center;
-   
+   display: flex;
+      flex-direction: column;
 }
 
-.principal{
-   display: flex;
-   flex-direction: column;
-}
+
