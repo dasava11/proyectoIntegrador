@@ -3,8 +3,9 @@
     flex-direction: row;
     margin: 0 auto;
     margin-top: 10rem;
-    border: 2px solid lawngreen;
+    border: none;
     border-radius: 2.5rem;
+    background-color: aliceblue;
 }
 
 .forma {

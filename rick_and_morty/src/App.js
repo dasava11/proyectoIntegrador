@@ -5,6 +5,7 @@ import Cards from "./components/Cards/Cards.jsx";
 import About from "./components/About/About";
 import Nav from "./components/Nav/Nav.jsx";
 import Login from "./components/Login/Login";
+import Detail from "./components/Detail/Detail";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -21,7 +22,6 @@ function App() {
           } else {
             window.alert("El personaje ya fue agregado");
           }
-          setCharacters((chars) => [...chars, data]);
         } else {
           window.alert("No hay personajes con ese ID");
         }
@@ -44,6 +44,7 @@ function App() {
           element={<Cards characters={characters} onClose={onClose} />}
         ></Route>
         <Route path="/about" element={<About />}></Route>
+        <Route path="/detail/:detailId" element={<Detail />} />
       </Routes>
     </div>
   );

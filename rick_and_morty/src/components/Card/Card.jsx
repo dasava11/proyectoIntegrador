@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import DanielRegular from '../../fonts/DanielRegular.ttf'; 
-
+import {Link} from 'react-router-dom';
 
 const RickCard = styled.div`
 display: flex;
@@ -84,14 +84,16 @@ export default function Card({id, name, species, gender, image, onClose}) {
 
    
    return (
-      <RickCard>
-         <BotonR onClick={onClose} key={id} >close</BotonR>
-         <InfoP>{name}</InfoP>
-         <ImagenP  src={image} alt="Not found" />
-      <DatosP>
-         <InfoP>{species}</InfoP>
-         <InfoP>{gender}</InfoP>
-      </DatosP>
-      </RickCard>
+      <Link to={`/detail/${id}`}>
+         <RickCard>
+            <BotonR onClick={onClose} key={id} >close</BotonR>
+            <InfoP>{name}</InfoP>
+            <ImagenP  src={image} alt="Not found" />
+         <DatosP>
+            <InfoP>{species}</InfoP>
+            <InfoP>{gender}</InfoP>
+         </DatosP>
+         </RickCard>
+      </Link>
    );
 }

@@ -18,6 +18,7 @@ export default function Cards(props) {
       <CardS>
          {characters.map(({id, name, species, gender, image, onClose})=>(
             <Card
+               id={id}
                key={id}
                name={name}
                image={image}
