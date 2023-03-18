@@ -56,6 +56,7 @@ const handleInputChange = (event) => {
     const {value} = event.target
     // console.log(value)
     setCharacter(value); 
+    /* setCharacter(value= '') */
 }
 
 const handleClick = ()=>{
@@ -63,10 +64,18 @@ const handleClick = ()=>{
     setCharacter('')
 }
 
+const handleKey = (event)=>{
+if(event.key==='Enter'){
+    props.onSearch(character)
+    setCharacter('')
+}
+
+}
+
    return (
       <Busqueda>
         {console.log('aqui: ', character)}
-         <SearchP type='search' placeholder="Buscar un personaje" onChange={handleInputChange} />
+         <SearchP type='search' placeholder="Buscar un personaje" onChange={handleInputChange} onKeyDown={handleKey}/>
       <BotonB onClick={handleClick}>Agregar</BotonB>
       </Busqueda>
    );

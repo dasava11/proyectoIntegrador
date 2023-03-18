@@ -1,0 +1,41 @@
+.margen{
+    margin-left: 33rem;
+    margin-right: 33rem;
+}
+
+.contenedorP{
+   display: flex;
+   flex-direction: row; 
+   margin: 0 auto;
+   margin-top: 3rem;
+   border: none;
+   border-radius: 1rem;
+   background-color:  rgba(126, 252, 0, 0.671);
+   align-items: center;
+}
+
+.info{
+color: indigo;
+margin: 3rem;
+margin-top: 2.5rem;
+margin-bottom: 2.5rem;
+}
+
+.foto{
+    border-radius: 1rem;
+    margin: 4.2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.back{
+color: indigo;
+background-color: rgba(240, 248, 255, 1);
+border: none;
+border-radius: 1rem;
+padding: 1.2rem;
+font-size: 1.5rem;
+margin-top: 2rem;
+margin-left: 46rem;
+display: flex;
+cursor: pointer;
+}
