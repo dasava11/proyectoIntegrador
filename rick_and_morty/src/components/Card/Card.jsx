@@ -84,16 +84,20 @@ export default function Card({id, name, species, gender, image, onClose}) {
 
    
    return (
-      <Link to={`/detail/${id}`}>
-         <RickCard>
-            <BotonR onClick={onClose} key={id} >close</BotonR>
-            <InfoP>{name}</InfoP>
-            <ImagenP  src={image} alt="Not found" />
-         <DatosP>
-            <InfoP>{species}</InfoP>
-            <InfoP>{gender}</InfoP>
-         </DatosP>
-         </RickCard>
-      </Link>
+   
+   <RickCard>
+      <BotonR onClick={onClose} key={id} >close</BotonR>
+      
+      <InfoP>{name}</InfoP>
+      <ImagenP  src={image} alt="Not found" />
+         
+            <DatosP>
+               <InfoP>{species}</InfoP>
+               <InfoP>{gender}</InfoP>
+               <Link to={`/detail/${id}`}>More</Link>
+            </DatosP>
+         
+   </RickCard>
+      
    );
 }

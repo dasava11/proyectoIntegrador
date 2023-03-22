@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Cards from "./components/Cards/Cards.jsx";
 import About from "./components/About/About";
 import Nav from "./components/Nav/Nav.jsx";
@@ -8,6 +8,7 @@ import Login from "./components/Login/Login";
 import Detail from "./components/Detail/Detail";
 
 function App() {
+  const location = useLocation()
   const [characters, setCharacters] = useState([]);
 
   const onSearch = (character) => {
@@ -35,7 +36,8 @@ function App() {
 
   return (
     <div className="App">
-      <Nav onSearch={onSearch} />
+      {location.pathname !== '/' &&
+      <Nav onSearch={onSearch} />}
 
       <Routes>
         <Route path="/" element={<Login />} />
