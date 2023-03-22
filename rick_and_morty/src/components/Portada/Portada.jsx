@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import portada from '../../image/bannerRick.jpg'
 
 /* const Front = styled.img`
 display: flex;
@@ -26,7 +27,7 @@ margin-bottom: 10px;
 export default function Sleeve(){
     return(
         <ContentP>
-            <LabelP src= 'https://cdn.shopify.com/s/files/1/0346/8063/5529/collections/rick-morty-collection-banner_1944x.jpg?v=1590095280' alt="label Portada" />
+            <LabelP src={portada} alt="label Portada" />
             {/* <Front className='portada' src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg' alt='Portada'/> */}
         </ContentP>
     )

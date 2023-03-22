@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import SearchBar from "../SearchBar/SearchBar";
 import DanielRegular from '../../fonts/DanielRegular.ttf';
+import imageP from '../../image/logo.png'
 
 const ContainerNav = styled.div`
 display: flex;
@@ -26,7 +27,7 @@ left: 20px;
 const Nav = (props)=> {
   return (
     <ContainerNav>
-    <Front className='portada' src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg' alt='Portada'/>
+    <Front className='portada' src={imageP} alt='Portada'/>
     <NavLink to='/home'>Home</NavLink>
     <NavLink to='/about'>About</NavLink>
     <SearchBar onSearch={(characterID) => props.onSearch(characterID)}/>
