@@ -1,6 +1,6 @@
 import "./App.css";
-import React, { useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Cards from "./components/Cards/Cards.jsx";
 import About from "./components/About/About";
 import Nav from "./components/Nav/Nav.jsx";
@@ -10,6 +10,10 @@ import Detail from "./components/Detail/Detail";
 function App() {
   const location = useLocation()
   const [characters, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
+  const EMAIL = 'ing27.david@gmai.com'
+  const PASSWORD = 'R@ftel27'
+  const navigate = useNavigate()
 
   const onSearch = (character) => {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
@@ -33,6 +37,15 @@ function App() {
     const print = characters.filter((char) => char.id !== id);
     setCharacters(print);
   };
+
+  function login(userData){
+    userData.username === EMAIL && userData.password === PASSWORD && setAccess(true) && navigate('/home')
+  };
+
+  useEffect(() => {
+    !access && navigate('/');
+ }, [access]);
+ 
 
   return (
     <div className="App">
