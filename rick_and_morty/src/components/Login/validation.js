@@ -1,5 +1,5 @@
 
-const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2}$/i;
 
 const regexPassword = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,10}$/
 
@@ -12,7 +12,7 @@ export const validate = (inputs)=>{
     if (inputs.username === '') {
         errors.username =  'El nombre de usuario no puede estar vacío'
     };
-    if (inputs.username > 35) {
+    if (inputs.username.length > 35) {
         errors.username = 'El nombre de usuario no puede tener más de 35 caracteres'
     };
     if (!regexPassword.test(inputs.password)) {

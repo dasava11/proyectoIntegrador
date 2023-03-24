@@ -5,7 +5,7 @@ import styles from './Login.module.css';
 import morty from '../../image/morty.jpg'
 import { validate } from "./validation";
 
-const Login = ()=>{
+const Login = (props)=>{
 const [userData, setUserData] = useState({
     username: '',
     password: ''
@@ -28,12 +28,17 @@ const handleInputChange = (event)=>{
         ...errors,
         [name]: value
     }))
+};
+
+const handleSubmit = (event)=>{
+event.preventDefault()
+props.login(userData)
 }
 
     return(
         <div className={styles.contenedor} >
             <img src={morty} alt="bienvenido" className={styles.imagen} />
-            <form className={styles.forma}>
+            <form className={styles.forma} onSubmit={handleSubmit}>
                 <label className={styles.labelS} >Username</label>
                 <input 
                 name="username"
@@ -51,7 +56,7 @@ const handleInputChange = (event)=>{
                 onChange={handleInputChange} />
                 {errors.password ? <p className={styles.err} >{errors.password}</p> : null}
                 <button type="submit">Login</button>
-                <Link>Registrarse</Link>
+                <Link to="/signup">Registrarse</Link>
             </form>
         </div>
     )

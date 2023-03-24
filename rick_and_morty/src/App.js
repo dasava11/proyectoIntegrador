@@ -6,12 +6,13 @@ import About from "./components/About/About";
 import Nav from "./components/Nav/Nav.jsx";
 import Login from "./components/Login/Login";
 import Detail from "./components/Detail/Detail";
+import SignUp from "./components/SignUp/SignUp";
 
 function App() {
   const location = useLocation()
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
-  const EMAIL = 'ing27.david@gmai.com'
+  const EMAIL = 'ing27.david@gmail.com'
   const PASSWORD = 'R@ftel27'
   const navigate = useNavigate()
 
@@ -39,12 +40,15 @@ function App() {
   };
 
   function login(userData){
-    userData.username === EMAIL && userData.password === PASSWORD && setAccess(true) && navigate('/home')
+    if (userData.username === EMAIL && userData.password === PASSWORD) {
+    setAccess(true)
+    navigate('/home')
+    };
   };
 
   useEffect(() => {
     !access && navigate('/');
- }, [access]);
+ }, [access, navigate]);
  
 
   return (
@@ -53,11 +57,11 @@ function App() {
       <Nav onSearch={onSearch} />}
 
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Login login={login} />} />
+        <Route path="/signup" element={<SignUp/>}/>
         <Route
           path="/home"
-          element={<Cards characters={characters} onClose={onClose} />}
-        ></Route>
+          element={<Cards characters={characters} onClose={onClose} />}/>
         <Route path="/about" element={<About />}></Route>
         <Route path="/detail/:detailId" element={<Detail />} />
       </Routes>
