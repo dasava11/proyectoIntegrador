@@ -12,22 +12,25 @@ const [userData, setUserData] = useState({
 });
 
 const [errors, setErrors] = useState({
-    username: '',
-    password: ''
+    usernameErr: '',
+    passwordErr: ''
 });
 
 const handleInputChange = (event)=>{
     const {name, value} = event.target
+    ;
+    
     setUserData({
+        
         ...userData,
         [name]: value
     })
-    console.log(value)
 
     setErrors(validate({
         ...errors,
-        [name]: value
+        [name]:value
     }))
+    
 };
 
 const handleSubmit = (event)=>{
@@ -46,7 +49,7 @@ props.login(userData)
                 type='email' 
                 placeholder="Enter email" 
                 onChange={handleInputChange} />
-                {errors.username ? <p className={styles.err} >{errors.username}</p> : null}
+                {errors.usernameErr ? <p className={styles.err} >{errors.usernameErr}</p> : null}
                 <label className={styles.labelS}>Password</label>
                 <input 
                 name='password' 
@@ -54,7 +57,7 @@ props.login(userData)
                 type="password" id="" 
                 placeholder="Enter Password" 
                 onChange={handleInputChange} />
-                {errors.password ? <p className={styles.err} >{errors.password}</p> : null}
+                {errors.passwordErr ? <p className={styles.err} >{errors.passwordErr}</p> : null}
                 <button type="submit">Login</button>
                 <Link to="/signup">Registrarse</Link>
             </form>
