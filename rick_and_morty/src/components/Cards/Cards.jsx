@@ -27,7 +27,7 @@ export default function Cards(props) {
                onClose={() => props.onClose(id)}
             /> 
          ))}
-      </CardS>;
+      </CardS>
     </div>
    )
 }

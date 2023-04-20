@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from './Login.module.css';
 import morty from '../../image/morty.jpg'
-import { validate } from "./validation";
+//import { validate } from "./validation";
 
 const Login = (props)=>{
 const [userData, setUserData] = useState({
@@ -11,10 +11,10 @@ const [userData, setUserData] = useState({
     password: ''
 });
 
-const [errors, setErrors] = useState({
+/* const [errors, setErrors] = useState({
     usernameErr: '',
     passwordErr: ''
-});
+}); */
 
 const handleInputChange = (event)=>{
     const {name, value} = event.target
@@ -26,10 +26,10 @@ const handleInputChange = (event)=>{
         [name]: value
     })
 
-    setErrors(validate({
+/*     setErrors(validate({
         ...errors,
         [name]:value
-    }))
+    })) */
     
 };
 
@@ -49,7 +49,7 @@ props.login(userData)
                 type='email' 
                 placeholder="Enter email" 
                 onChange={handleInputChange} />
-                {errors.usernameErr ? <p className={styles.err} >{errors.usernameErr}</p> : null}
+                {/* {errors.usernameErr ? <p className={styles.err} >{errors.usernameErr}</p> : null} */}
                 <label className={styles.labelS}>Password</label>
                 <input 
                 name='password' 
@@ -57,7 +57,7 @@ props.login(userData)
                 type="password" id="" 
                 placeholder="Enter Password" 
                 onChange={handleInputChange} />
-                {errors.passwordErr ? <p className={styles.err} >{errors.passwordErr}</p> : null}
+               {/*  {errors.passwordErr ? <p className={styles.err} >{errors.passwordErr}</p> : null} */}
                 <button type="submit">Login</button>
                 <Link to="/signup">Registrarse</Link>
             </form>

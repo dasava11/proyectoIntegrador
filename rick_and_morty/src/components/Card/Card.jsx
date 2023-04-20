@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import DanielRegular from '../../fonts/DanielRegular.ttf'; 
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux'
+import { addFavorite, deleteFavorite } from '../../redux/actions';
+import { useState} from 'react';
 
 const RickCard = styled.div`
 display: flex;
@@ -31,8 +34,6 @@ cursor: pointer;
    transform: scale(1.1); 
 }
 `
-
-
 const BotonR = styled.button`
 display: flex;
 justify-content:right ;
@@ -56,9 +57,7 @@ height: 4px;
 `
 const InfoP = styled.h2`
 margin: 0px;
-
 `
-
 const DatosP = styled.div`
 display: flex;
 flex-direction: column;
@@ -71,22 +70,42 @@ background-color: lawngreen;
 color: black;
 /* padding-bottom: 5px; */
 `
-
 const ImagenP = styled.img`
 height: 220px;
 border-radius: 200px;
 box-shadow: 2px 2px 5px rgba(240, 248, 255, 1);
 margin: 5px 0px 5px 0px;
-
 `
 
-export default function Card({id, name, species, gender, image, onClose}) {
+function Card({id, name, species, gender, image, onClose}) {
 
-   
+   const [isFav, setIsFav] = useState(false);
+
+/*    useEffect(() => {
+      myFavorites.forEach((fav) => {
+         if (fav.id === props.id) {
+            setIsFav(true);
+         }
+      });
+   }, [myFavorites]); */
+
+   const handleFavorite = ()=>{
+      if (isFav) {
+         setIsFav(false)
+         deleteFavorite(id)
+      }else{
+         setIsFav(true)
+         addFavorite({id, name, species, gender, image, onClose})
+      }
+   }
+ 
    return (
    
    <RickCard>
+      <div>
+      { isFav ? (<button onClick={handleFavorite}>❤️</button>) : (<button onClick={handleFavorite}>🤍</button>)}
       <BotonR onClick={onClose} key={id} >close</BotonR>
+      </div>
       
       <InfoP>{name}</InfoP>
       <ImagenP  src={image} alt="Not found" />
@@ -101,3 +120,16 @@ export default function Card({id, name, species, gender, image, onClose}) {
       
    );
 }
+
+const mapDispatchToProps = (dispatch) =>{
+   return{
+      addFavorite: (character)=>{
+         dispatch(addFavorite(character))
+      },
+      deleteFavorite: (id)=>{
+         dispatch(deleteFavorite(id))
+      }
+   }
+}
+
+export default connect(null, mapDispatchToProps)(Card)
