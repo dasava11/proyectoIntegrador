@@ -25,13 +25,15 @@ left: 20px;
 
 
 const Nav = (props)=> {
+  console.log(props);
+ 
   return (
     <ContainerNav>
     <Front className='portada' src={imageP} alt='Portada'/>
     <NavLink to='/home'>Home</NavLink>
     <NavLink to='/about'>About</NavLink>
     <SearchBar onSearch={(characterID) => props.onSearch(characterID)}/>
-     
+    
     </ContainerNav>
   )
 }

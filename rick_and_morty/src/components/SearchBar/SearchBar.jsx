@@ -50,6 +50,7 @@ cursor: pointer;
 `
 
 export default function SearchBar(props) {
+    console.log(props);
 const [character, setCharacter] = useState('')
 
 const handleInputChange = (event) => {
